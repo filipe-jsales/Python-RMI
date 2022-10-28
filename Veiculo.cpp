@@ -18,6 +18,10 @@ string Veiculo::getTipoDeVeiculo() const
 
 void Veiculo::setVelocidadeAtual( float velocidadeAtual )
 {
+    //checa se a velocidade atual é maior que a máxima permitida
+    if ( velocidadeAtual > this->velocidadeMaxima)
+        this->velocidadeAtual = velocidadeMaxima;
+
     this->velocidadeAtual = velocidadeAtual;
 }
 

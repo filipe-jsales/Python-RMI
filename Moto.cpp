@@ -1,10 +1,12 @@
 #include "Moto.h"
 
 Moto::Moto()
+:velocidadeMaxima(230.0), rodas(2), blindagem(false), setTipoDeVeiculo("moto")
 {
-    this->velocidadeMaxima = 230.0;
-    this->rodas = 2;
     this->velocidadeAtual = 0.0;
-    this->blindagem = false;
-    this->setTipoDeVeiculo("moto");
+}
+Moto::Moto(float velocidadeAtual)
+:velocidadeMaxima(230.0), rodas(2), blindagem(false), setTipoDeVeiculo("moto")
+{
+    setVelocidadeAtual( velocidadeAtual );
 }
