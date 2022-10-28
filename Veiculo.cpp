@@ -15,3 +15,13 @@ string Veiculo::getTipoDeVeiculo() const
 {
     return this->tipoDeVeiculo;
 }
+
+void Veiculo::setVelocidadeAtual( float velocidadeAtual )
+{
+    this->velocidadeAtual = velocidadeAtual;
+}
+
+float Veiculo::getVelocidadeAtual( )
+{
+    return this->velocidadeAtual; 
+}

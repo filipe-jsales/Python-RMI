@@ -9,15 +9,16 @@ using std::string;
 class Veiculo
 {
     public:
-        void setTipoDeVeiculo(const string &);
-        string getTipoDeVeiculo() const;
+        void setTipoDeVeiculo( const string & );
+        string getTipoDeVeiculo( ) const;
+        void setVelocidadeAtual( float );
+        float getVelocidadeAtual( );
 
     protected:
-        int tipo;
-        int velMax;
+        float velocidadeMaxima;
         bool armamento;
-        int velocidade;
-        int blind;
+        float velocidadeAtual;
+        bool blindagem;
         int rodas;
         static const int QUANTIDADETIPOSDEVEICULOS = 3;
         static const string TIPOSDEVEICULOS[ QUANTIDADETIPOSDEVEICULOS ];
