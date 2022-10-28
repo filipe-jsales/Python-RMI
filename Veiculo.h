@@ -8,11 +8,18 @@ using std::string;
 
 class Veiculo
 {
+    friend ostream &operator<<( ostream &, const Veiculo & );
     public:
+
+        Veiculo( );
+        // Veiculo( const int );
+
         void setTipoDeVeiculo( const string & );
         string getTipoDeVeiculo( ) const;
         void setVelocidadeAtual( float );
         float getVelocidadeAtual( );
+        void setRodas( int );
+        int getRodas();
 
     protected:
         float velocidadeMaxima;
