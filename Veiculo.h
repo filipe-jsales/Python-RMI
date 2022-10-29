@@ -8,10 +8,9 @@ using std::string;
 
 class Veiculo
 {
-    friend ostream &operator<<( ostream &, const Veiculo & );
     public:
 
-        Veiculo( );
+        // Veiculo( );
         // Veiculo( const int );
 
         void setTipoDeVeiculo( const string & );

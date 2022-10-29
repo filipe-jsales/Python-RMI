@@ -6,11 +6,11 @@ using std::string;
 
 const string Veiculo::TIPOSDEVEICULOS[ QUANTIDADETIPOSDEVEICULOS ] = {"Carro", "Moto"};
 
-Veiculo::Veiculo( )
-:velocidadeAtual(0.0)
-{
+// Veiculo::Veiculo( )
+// :velocidadeAtual(0.0)
+// {
 
-}
+// }
 
 // Veiculo::Veiculo( int rodas)
 // {
@@ -43,9 +43,6 @@ float Veiculo::getVelocidadeAtual( )
 
 void Veiculo::setRodas( int rodas )
 {
-    //checa se a velocidade atual é maior que a máxima permitida
-    // if ( velocidadeAtual > this->velocidadeMaxima)
-    //     this->velocidadeAtual = velocidadeMaxima;
 
     this->rodas = rodas;
 }
