@@ -1,39 +1,56 @@
 #include<iostream>
 using namespace std;
- 
+#include <stdexcept>
+
 class Veiculo
 {
     public:
 
     Veiculo()
+    :velocidadeMaxima(300.0), rodas(0), velocidadeAtual(0.0) 
     {
-        setVelocidadeAtual(0);
+        // Veiculo::quantidadeVeiculos++;
     }
+
     Veiculo( int rodas)
     {
-        this->rodas = rodas;
-        if (this->rodas == 2)
+        if (rodas == 2)
+        {
             this->setTipoDeVeiculo("moto");
+            this->rodas = rodas;
             return;
-        if (this->rodas == 4)
+        }
+        if (rodas == 4)
+        {
             this->setTipoDeVeiculo("carro");
+            this->rodas = rodas;
             return;
+        }
+        throw std::invalid_argument( "Valor invalido de rodas" );
         
     }
+
+    //construtor de copia
     Veiculo( const Veiculo &playerOut )
     {
         this->tipoDeVeiculo = playerOut.tipoDeVeiculo;
         this->rodas = playerOut.rodas;
-        this->blindagem = playerOut.blindagem;
+        this->velocidadeAtual = playerOut.velocidadeAtual;
+        this->velocidadeMaxima = playerOut.velocidadeMaxima;
 
-        // this->socialMediaConection.resize( playerOut.socialMediaConection.size() );
-        // for( int i = 0; i < this->socialMediaConection.size( ); i++ )
-        //     this->socialMediaConection[ i ] = playerOut.socialMediaConection[ i ];
     }
-
+    // ~Veiculo( )
+    // {
+    //     quantidadeVeiculos --;
+    // }
 
     void setTipoDeVeiculo(const string & tipoDeVeiculo)
     {
+        if (tipoDeVeiculo != "carro" || "moto")
+        {
+            // throw std::invalid_argument( "Tipo de veiculo invalido" );
+            // return;
+        }
         this->tipoDeVeiculo = tipoDeVeiculo;
     }
 
@@ -67,20 +84,16 @@ class Veiculo
         return this->rodas; 
     }
 
-    
-
 
     protected:
 
     float velocidadeMaxima;
-    bool armamento;
     float velocidadeAtual;
-    bool blindagem;
     int rodas;
     static const int QUANTIDADETIPOSDEVEICULOS = 2;
     const string TIPOSDEVEICULOS[ QUANTIDADETIPOSDEVEICULOS ] = {"Carro", "Moto"};
-
     string tipoDeVeiculo;
+    static int quantidadeVeiculos;
 };
  
 class Moto: public Veiculo
@@ -89,28 +102,61 @@ class Moto: public Veiculo
     public:
     Moto()
     {
-        setTipoDeVeiculo("moto");
+        this->setTipoDeVeiculo("moto");
     };
     Moto( int rodas)
     {
         this->rodas = rodas;
         if (this->rodas == 2)
-            setTipoDeVeiculo("moto");
+            this->setTipoDeVeiculo("moto");
             return;
         if (this->rodas == 4)
-            setTipoDeVeiculo("carro");
+            this->setTipoDeVeiculo("carro");
             return;
         
     }
+
+    Moto( const Moto &playerOut )
+    {
+        this->tipoDeVeiculo = playerOut.tipoDeVeiculo;
+        this->rodas = playerOut.rodas;
+    }
+
+    void darOGrau( )
+    {
+        cout << "Dando o grau" << "\n";
+    }
+
+    void setModelo( const string &modelo)
+    {
+        this->modelo = modelo;
+    }
+    string getModelo( )const 
+    {
+        return this->modelo;
+    }
+
     private:
+    float economico = true;
+    string modelo;
+    int ano;
+    bool freioAbs;
+
 
 };
  
+class Bis: public Moto
+{
+    public:
+
+    private:
+    bool flex;
+};
+
 main()
 {
     Moto moto1;
-    cout << moto1.getTipoDeVeiculo() << "\n";
-    cout << "Tipo de veiculo: " << moto1.getTipoDeVeiculo();
+    // cout << "Tipo de veiculo: " << moto1.getTipoDeVeiculo();
 
     Veiculo moto2(4);
     cout << "Quantidade de rodas " << moto2.getRodas();
