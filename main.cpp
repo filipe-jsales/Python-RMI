@@ -101,6 +101,7 @@ class Moto: public Veiculo
 
     public:
     Moto()
+    :economico(true)
     {
         this->setTipoDeVeiculo("moto");
     };
@@ -120,11 +121,16 @@ class Moto: public Veiculo
     {
         this->tipoDeVeiculo = playerOut.tipoDeVeiculo;
         this->rodas = playerOut.rodas;
+        this->velocidadeAtual = playerOut.velocidadeAtual;
+        this->velocidadeMaxima = playerOut.velocidadeMaxima;
+        this->economico = playerOut.economico;
+        this->modelo = playerOut.modelo;
+        this->freioAbs = playerOut.freioAbs;
     }
 
     void darOGrau( )
     {
-        cout << "Dando o grau" << "\n";
+        cout << "Dando o grau VRUUM " << "\n";
     }
 
     void setModelo( const string &modelo)
@@ -135,11 +141,14 @@ class Moto: public Veiculo
     {
         return this->modelo;
     }
+    void setFreioAbs(const bool freioAbs)
+    {
+        this->freioAbs = freioAbs;
+    }
 
     private:
     float economico = true;
     string modelo;
-    int ano;
     bool freioAbs;
 
 
@@ -151,11 +160,14 @@ class Bis: public Moto
 
     private:
     bool flex;
+    int ano;
+    string placa;
 };
 
 main()
 {
     Moto moto1;
+    moto1.setFreioAbs(true); 
     // cout << "Tipo de veiculo: " << moto1.getTipoDeVeiculo();
 
     Veiculo moto2(4);
