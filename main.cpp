@@ -31,12 +31,12 @@ class Veiculo
     }
 
     //construtor de copia
-    Veiculo( const Veiculo &playerOut )
+    Veiculo( const Veiculo &veiculoOut )
     {
-        this->tipoDeVeiculo = playerOut.tipoDeVeiculo;
-        this->rodas = playerOut.rodas;
-        this->velocidadeAtual = playerOut.velocidadeAtual;
-        this->velocidadeMaxima = playerOut.velocidadeMaxima;
+        this->tipoDeVeiculo = veiculoOut.tipoDeVeiculo;
+        this->rodas = veiculoOut.rodas;
+        this->velocidadeAtual = veiculoOut.velocidadeAtual;
+        this->velocidadeMaxima = veiculoOut.velocidadeMaxima;
 
     }
     // ~Veiculo( )
@@ -84,7 +84,6 @@ class Veiculo
         return this->rodas; 
     }
 
-
     protected:
 
     float velocidadeMaxima;
@@ -104,28 +103,24 @@ class Moto: public Veiculo
     :economico(true)
     {
         this->setTipoDeVeiculo("moto");
+        this->setRodas(2);
     };
-    Moto( int rodas)
+    Moto( bool economico, bool freioAbs, float velocidadeMaxima )
     {
-        this->rodas = rodas;
-        if (this->rodas == 2)
-            this->setTipoDeVeiculo("moto");
-            return;
-        if (this->rodas == 4)
-            this->setTipoDeVeiculo("carro");
-            return;
-        
+        this->economico = economico;
+        this->freioAbs = freioAbs;
+        this->velocidadeMaxima = velocidadeMaxima;
     }
 
-    Moto( const Moto &playerOut )
+    Moto( const Moto &veiculoOut )
     {
-        this->tipoDeVeiculo = playerOut.tipoDeVeiculo;
-        this->rodas = playerOut.rodas;
-        this->velocidadeAtual = playerOut.velocidadeAtual;
-        this->velocidadeMaxima = playerOut.velocidadeMaxima;
-        this->economico = playerOut.economico;
-        this->modelo = playerOut.modelo;
-        this->freioAbs = playerOut.freioAbs;
+        this->tipoDeVeiculo = veiculoOut.tipoDeVeiculo;
+        this->rodas = veiculoOut.rodas;
+        this->velocidadeAtual = veiculoOut.velocidadeAtual;
+        this->velocidadeMaxima = veiculoOut.velocidadeMaxima;
+        this->economico = veiculoOut.economico;
+        this->cilindradas = veiculoOut.cilindradas;
+        this->freioAbs = veiculoOut.freioAbs;
     }
 
     void darOGrau( )
@@ -133,32 +128,96 @@ class Moto: public Veiculo
         cout << "Dando o grau VRUUM " << "\n";
     }
 
-    void setModelo( const string &modelo)
+    void setModelo( const int &cilindradas)
     {
-        this->modelo = modelo;
+        this->cilindradas = cilindradas;
     }
-    string getModelo( )const 
+    int getModelo( )const 
     {
-        return this->modelo;
+        return this->cilindradas;
     }
     void setFreioAbs(const bool freioAbs)
     {
         this->freioAbs = freioAbs;
     }
+    bool getFreioAbs( )
+    {
+        return this->freioAbs;
+    }
+    bool setEconomico( const bool economico)
+    {
+        this->economico = economico;
+    }
+    bool getEconomico( )
+    {
+        return this->economico;
+    }
 
-    private:
+    protected:
     float economico = true;
-    string modelo;
+    int cilindradas;
     bool freioAbs;
-
+    int rodas = 2;
 
 };
  
-class Bis: public Moto
+class Biz: public Moto
 {
     public:
+    Biz():  Moto()
+    {
+        this->setPlaca("sem-placa");
+        this->setEconomico("true");
+        this->ano = 0;
+    };
+    Biz( int ano, string placa)
+    {
+        this->ano = ano;
+        this->placa = placa;
+        this->setEconomico(true);
+    }
 
-    private:
+    Biz( const Biz &veiculoOut )
+    {
+        this->tipoDeVeiculo = veiculoOut.tipoDeVeiculo;
+        this->rodas = veiculoOut.rodas;
+        this->velocidadeAtual = veiculoOut.velocidadeAtual;
+        this->velocidadeMaxima = veiculoOut.velocidadeMaxima;
+        this->economico = veiculoOut.economico;
+        this->cilindradas = veiculoOut.cilindradas;
+        this->freioAbs = veiculoOut.freioAbs;
+        this->ano = veiculoOut.ano;
+        this->placa = veiculoOut.placa;
+    }
+
+    void setPlaca(const string &placa)
+    {
+        this->placa = placa;
+    }
+    string getPlaca( ) const
+    {
+        return this->placa;
+    }
+
+    bool operator!() const{
+        if(ano <= 0){
+            cout << "Ano do veiculo nao informado" << '\n';
+            return false;
+        }
+        return true;
+    }
+
+    bool operator==( const int &anoInput )const{
+        cout <<"Operador ==" <<'\n';
+        if(ano == anoInput){
+            cout<< "Veiculo equipado com freios ABS"<<'\n';
+            return true;
+        }
+        
+        return false;
+    }
+
+    protected:
     bool flex;
     int ano;
     string placa;
@@ -173,6 +232,11 @@ main()
     Veiculo moto2(4);
     cout << "Quantidade de rodas " << moto2.getRodas();
     cout << "Tipo de veiculo: " << moto2.getTipoDeVeiculo();
+
+    Biz biz;
+
+
+    cout << biz.getRodas();
 
     
 
