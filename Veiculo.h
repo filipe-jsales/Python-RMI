@@ -1,38 +1,38 @@
 #ifndef VEICULO_H
 #define VEICULO_H
 #include <iostream>
-using std::ostream;
 using std::cout;
+using std::ostream;
 using std::string;
-
 
 class Veiculo
 {
-    public:
+    friend ostream &operator<<(ostream &, const Veiculo &);
 
-        // Veiculo( );
-        // Veiculo( const int );
+public:
+    Veiculo();
+    Veiculo(int);
+    Veiculo(const Veiculo &);
+    void setTipoDeVeiculo(const string &);
+    string getTipoDeVeiculo() const;
+    void setVelocidadeAtual(float);
+    float getVelocidadeAtual();
+    void setRodas(int);
+    int getRodas();
 
-        void setTipoDeVeiculo( const string & );
-        string getTipoDeVeiculo( ) const;
-        void setVelocidadeAtual( float );
-        float getVelocidadeAtual( );
-        void setRodas( int );
-        int getRodas();
+    bool operator!=(const Veiculo &) const;
+    bool operator==(const Veiculo &) const;
+    bool operator!() const;
+    void operator=(const Veiculo &);
 
-    protected:
-        float velocidadeMaxima;
-        bool armamento;
-        float velocidadeAtual;
-        bool blindagem;
-        int rodas;
-        static const int QUANTIDADETIPOSDEVEICULOS = 3;
-        static const string TIPOSDEVEICULOS[ QUANTIDADETIPOSDEVEICULOS ];
-
-        string tipoDeVeiculo;
+protected:
+    float velocidadeMaxima;
+    float velocidadeAtual;
+    int rodas;
+    static const int QUANTIDADETIPOSDEVEICULOS = 2;
+    const string TIPOSDEVEICULOS[QUANTIDADETIPOSDEVEICULOS] = {"Carro", "Moto"};
+    string tipoDeVeiculo;
+    static int quantidadeVeiculos;
 };
 
-
-
-
-#endif //VEICULO_H
+#endif // VEICULO_H
