@@ -14,7 +14,6 @@ int main()
 {
     Veiculo veiculo1(2);
     cout << "Tipo de veiculo: " << veiculo1.getTipoDeVeiculo(); // moto
-<<<<<<< HEAD
 
     Moto moto1();
 
@@ -35,49 +34,7 @@ int main()
 
     cout << "Carro generico: \n";
     cout << carro1;
-=======
 
-    Moto moto1();
-
-    // Biz::Biz(int ano, string placa)
-    Biz bizinha(2011, "BEE4R22");
-
-    Biz biz2009(bizinha);
-    cout << veiculo1;
-    // out << "Quantidade de rodas" << '\n';
-    // out << veiculo.rodas;
-    // out << '\n';
-
-    // out << "Tipo de veiculo" << '\n';
-    // out << veiculo.tipoDeVeiculo; moto
-    // out << '\n';
-
-    // out << "Velocidade maxima" << '\n';
-    // out << veiculo.velocidadeMaxima; //300.0
-    // out << '\n';
-
-    cout << moto1;
-
-    // out << "Cilindradas:" << '\n';
-    //  out << moto1.cilindradas; 120
-    //  out << '\n';
-
-    // out << "Economico?" << '\n';
-    // out << moto1.economico; 1
-    // out << '\n';
-
-    // out << "Freio abs?" << '\n';
-    // out << moto1.freioAbs; 1
-    // out << '\n';
-
-    cout << bizinha;
-    // this->ano = ano;
-    // this->placa = placa;
-    // this->setEconomico(true);
->>>>>>> b1d9fc980112ca44eeca54cee92d7df521b97188
-
-    moto1.darOGrau();
-    // cout << "Dando o grau VRUUM "
 
     return 0;
 }
