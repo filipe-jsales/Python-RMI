@@ -14,6 +14,28 @@ int main()
 {
     Veiculo veiculo1(2);
     cout << "Tipo de veiculo: " << veiculo1.getTipoDeVeiculo(); // moto
+<<<<<<< HEAD
+
+    Moto moto1();
+
+    Carro carro1();
+
+    Biz bizinha(2011, "BEE4R22");
+    cout << "Veiculo de 2 rodas: \n";
+    Biz biz2011(bizinha);
+    cout << veiculo1;
+
+
+    cout << moto1;
+
+    cout << "bizinha: \n";
+    cout << bizinha;
+
+    // moto1.darOGrau();
+
+    cout << "Carro generico: \n";
+    cout << carro1;
+=======
 
     Moto moto1();
 
@@ -52,6 +74,7 @@ int main()
     // this->ano = ano;
     // this->placa = placa;
     // this->setEconomico(true);
+>>>>>>> b1d9fc980112ca44eeca54cee92d7df521b97188
 
     moto1.darOGrau();
     // cout << "Dando o grau VRUUM "
