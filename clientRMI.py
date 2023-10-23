@@ -1,3 +1,5 @@
+# Filipe Eduardo Junqueira Sales
+# 201904940004
 import Pyro5.api
 
 name = input("What is your name? ").strip()
